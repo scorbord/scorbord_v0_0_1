@@ -1,4 +1,4 @@
-# SCORBORD practicing with cucumber
+# SCORBORD v0.0.1
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
