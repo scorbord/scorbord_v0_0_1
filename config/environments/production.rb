@@ -64,7 +64,7 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'https://polar-fjord-5660.herokuapp.com'
+  host = 'https://scorbord.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   config.action_mailer.smtp_settings = {
     :address    => "smtp.mandrillapp.com",
@@ -73,7 +73,7 @@ Rails.application.configure do
     :user_name  => ENV['MANDRILL_USERNAME'],
     :password   => ENV['MANDRILL_APIKEY'], # SMTP password is any valid API key
     :authentication => 'plain', # Mandrill supports 'plain' or 'login'
-    :domain     => 'https://polar-fjord-5660.herokuapp.com', #your domain to identify your server when connecting
+    :domain     => 'https://scorbord.herokuapp.com', #your domain to identify your server when connecting
     } 
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
