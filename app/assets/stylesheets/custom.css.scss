@@ -81,6 +81,35 @@ p {
 	}
 }
 
+#practicePlanHeader {
+	h1 {
+		
+	}
+	h5 {
+		text-align: center;
+		margin-top: -20px;
+	}
+}
+
+#pastPracticePlans {
+	opacity: .3;
+	.table {
+		//display: none;
+		color: #999;
+		a {
+			color: #999;
+			padding-left: 20px;
+			text-decoration: italic;
+		}
+	}
+}
+#periods {
+	.dur:after {
+		content: ' minutes';
+	}
+}
+
+
 /* footer */
 
 footer {
@@ -205,5 +234,36 @@ input {
 		overflow: auto;
 		padding: 10px 0;
 		border-bottom: 1px solid $gray-lighter;
+	}
+}
+
+
+.item {
+	td{
+		width: inherit !important;
+		.num {
+			width: 5% !important;
+			text-align: center;
+		}
+	}
+	.num{
+		width: 5% !important;
+		text-align: center;
+		//background-color: #6699ff;
+	}
+	.mover{
+		width: 5% !important;
+		text-align: center;
+	}
+	.desc{
+		width: 45% !important;
+	}
+	.functions{
+		width: 15% !important;
+		text-align: right;
+		padding-right: 2%;
+		a{
+			padding-left: 5%;
+		}
 	}
 }

@@ -1,0 +1,90 @@
+<div id="practicePlanHeader">
+	<h1><%= @practice_plan.description %></h1>
+	<h5><%= @practice_plan.date.strftime('%A, %B %d, %Y')%> @ <%= @practice_plan.start_time.strftime('%l:%M %p') %> <%= link_to "edit", edit_practice_plan_path %></h5>
+</div>
+
+<div id="periods">
+	
+	<h3>Periods</h3>
+
+	<table class="table table-striped table-hover" id="sortable">
+		<thead>
+			<!--<th width="5%" style="text-align:center;">#</th>-->
+			<th width="5%"></th>
+			<th>Description</th>
+			<th>Duration</th>
+			<th></th>
+		</thead>
+		<tbody>
+			<% if @periods.empty? %>
+				<tr>
+					<td colspan="5">Add a practice period</td>
+				</tr>
+			<% else %>
+				<%= render @periods %>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<div id="addPeriod" style="background-color: #e6e6e6; padding: 25px; margin-top:-20px;">
+
+	<%= form_for(@period, :html => {class: 'form-inline', style: 'padding-left: 7%; height:34px;', id:"addPeriodForm"}, remote: true) do |f| %>
+		
+		<div class="form-group col-xs-5">
+			<%= f.text_field :description, placeholder: 'Description', class: 'form-control', id:'periodDesc', style:'width:100%;' %>
+		</div>
+		
+		<div class="form-group col-xs-3 col-md-2">
+			<div class="input-group">
+				<%= f.text_field :duration, placeholder: '5', class: 'form-control', id:"periodDur" %>
+				<div class="input-group-addon"> minutes</div>
+			</div>
+		</div>
+
+		<%= hidden_field_tag :practice_plan, @practice_plan.id %>
+
+		<div class="form-group col-xs-2">
+			<%= f.submit "Add Period", class: "btn btn-success", id:"addPeriodSubmit" %>
+		</div>
+		<div class="form-group col-xs-1">
+			<%= link_to "clear", '#', class:"btn", id:"clear-link" %>
+		</div>
+	<% end %>
+
+</div>
+
+
+<div class="modal fade" id="editPeriodModal" role="dialog" aria-labelledby="editPeriodModalLabel" aria-hidden="true">
+<!--
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Edit Practice period</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row"
+				<form>
+					<div class="form-group col-xs-8">
+						<label for="description" class="control-label">Description:</label>
+						<input type="text" class="form-control" id="description">
+					</div>
+					<div class="form-group col-xs-4">
+						<label for="duration" class="control-label">Duration:</label>
+						<input type="text" class="form-control" id="dur">
+					</div>
+				</form>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn" data-dismiss="modal">cancel</button>
+				<button type="button" class="btn btn-primary">Update</button>
+			</div>
+		</div>
+	</div>
+-->
+</div>
+
+
+
+

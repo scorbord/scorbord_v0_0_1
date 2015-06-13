@@ -1,0 +1,117 @@
+<% provide(:title, "Practice Plan") %>
+<div id="breadcrumb">
+	<%= link_to "< back to list", '/', class:"btn" %>
+</div>
+
+<div class="center">
+	<h1>Tuesday Practice - Rivalry Week</h1>
+	<h5>Tuesday, October 13, 2015 @ 3:30pm</h5>
+</div>
+<div id="periods">
+
+	<h3>Periods</h3>
+
+	<table class="table table-striped table-hover">
+		<thead>
+			<th width="5%" style="padding-left:20px;">#</th>
+			<th width="5%"></th>
+			<th>Description</th>
+			<th>Duration</th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr>
+				<td colspan="5">
+					<p style="font-style: italic; text-align:center; color: #999;">Add a practice period</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
+
+<div id="addPeriod" style="background-color: #e6e6e6; padding: 25px; margin-top:-20px;">
+	<form class="form-inline" style="padding-left: 7%;">
+		<div class="form-group col-xs-5">
+			<input type="text" class="form-control" style="width:100%;" id="description" placeholder="Description">
+		</div>
+		<div class="form-group col-xs-3 col-md-2">
+			<div class="input-group">
+				<input type="text" class="form-control" style="width:100%;" id="duration" placeholder="5">
+				<div class="input-group-addon"> minutes</div>
+			</div>
+		</div>
+		<%= link_to "Add Period", '#', class:"btn btn-success" %>
+		<%= link_to "clear", '#', class:"btn" %>
+	</form>
+
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+
+<div id="periods">
+
+	<h3>Periods</h3>
+
+	<table class="table table-striped table-hover">
+		<thead>
+			<th width="5%" style="padding-left:20px;">#</th>
+			<th width="5%"></th>
+			<th>Description</th>
+			<th>Duration</th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr>
+				<td style="padding-left:20px;">1</td>
+				<td align="center"><span class="glyphicon glyphicon-resize-vertical" style="color:#BBB;"></span></td>
+				<td>Stretch</td>
+				<td>15 minutes</td>
+				<td><%= link_to "edit", '#' %> <%= link_to "x", '#', class:"pull-right" %></td>
+			</tr>
+			<tr>
+				<td style="padding-left:20px;">2</td>
+				<td align="center"><span class="glyphicon glyphicon-resize-vertical" style="color:#BBB;"></span></td>
+				<td>Extra Point &amp; Field Goal</td>
+				<td>10 minutes</td>
+				<td><%= link_to "edit", '#' %> <%= link_to "x", '#', class:"pull-right" %></td>
+			</tr>
+			<tr>
+				<td style="padding-left:20px;">3</td>
+				<td align="center"><span class="glyphicon glyphicon-resize-vertical" style="color:#BBB;"></span></td>
+				<td>Break</td>
+				<td>5 minutes</td>
+				<td><%= link_to "edit", '#' %> <%= link_to "x", '#', class:"pull-right" %></td>
+			</tr>
+			<tr>
+				<td style="padding-left:20px;">4</td>
+				<td align="center"><span class="glyphicon glyphicon-resize-vertical" style="color:#BBB;"></span></td>
+				<td>All Special Teams</td>
+				<td>15 minutes</td>
+				<td><%= link_to "edit", '#' %> <%= link_to "x", '#', class:"pull-right" %></td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
+
+<div id="addPeriod" style="background-color: #e6e6e6; padding: 25px; margin-top:-20px;">
+	<form class="form-inline" style="padding-left: 7%;">
+		<div class="form-group col-xs-5">
+			<input type="text" class="form-control" style="width:100%;" id="description" placeholder="Description">
+		</div>
+		<div class="form-group col-xs-3 col-md-2">
+			<div class="input-group">
+				<input type="text" class="form-control" style="width:100%;" id="duration" placeholder="5">
+				<div class="input-group-addon"> minutes</div>
+			</div>
+		</div>
+		<%= link_to "Add Period", '#', class:"btn btn-success" %>
+		<%= link_to "clear", '#', class:"btn" %>
+	</form>
+
+</div>

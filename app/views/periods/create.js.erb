@@ -1,0 +1,9 @@
+if($('#sortable tr:last').find('td').html() == "Add a practice period") {
+	$('#sortable tr:last').replaceWith("<%= escape_javascript(render @period) %>")
+}
+else {
+	$("#sortable tr:last").after("<%= escape_javascript(render @period) %>");
+}
+$('#periodDesc').val('');
+$('#periodDur').val('');
+$('#periodDesc').focus();

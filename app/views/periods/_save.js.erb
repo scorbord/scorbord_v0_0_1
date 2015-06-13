@@ -1,0 +1,10 @@
+$("ul.errors").html("")
+<% if @period.errors.any? %>
+  <% @period.errors.full_messages.each do |message| %>
+    $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+  <% end %>
+<% else %>
+  $("tr[data-item-id='" + <%= @period.id %> + "']").replaceWith("<%= escape_javascript(render @period) %>")
+  $("#editPeriodModal").modal("hide")
+  $("tr[data-item-id='" + <%= @period.id %> + "']").children().effect('highlight', {}, 1000)
+<% end %>

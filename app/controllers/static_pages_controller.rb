@@ -12,4 +12,10 @@ class StaticPagesController < ApplicationController
 	def contact
 	end
 
+	def newpracticeplan
+	end
+
+	def viewpracticeplan
+	end
+
 end

@@ -1,0 +1,6 @@
+<tr data-href="<%= practice_plan_path(practice_plan) %>">
+	<td><b><%= practice_plan.date.strftime('%a, %b %d') %></b></td>
+	<td><%= practice_plan.start_time.strftime('%l:%M %p') %></td>
+	<td><%= practice_plan.description %></td>
+	<!--<td><%= link_to "view", practice_plan %></td>-->
+</tr>

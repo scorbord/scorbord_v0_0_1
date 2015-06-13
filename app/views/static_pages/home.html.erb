@@ -1,10 +1,80 @@
+<!--
 <div class="center jumbotron">
-	<h1>scorbord v1.2</h1>
+	<h1>scorbord v0.0.1</h1>
 	<h2>
-		Learning how to cuke
+		Practice Planning Tool
 	</h2>
 
 	<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
+-->
 
-<%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>
+<div class="row" style="padding-top: 10px;">
+	<div class="col-xs-10">
+	</div>
+	<div class="col-xs-2">
+		<%= link_to "New Practice Plan", 'newpracticeplan', class:"btn btn-success" %>
+	</div>
+</div>
+
+<h4>Today</h4>
+<table class="table table-striped table-hover">
+	<thead>
+		<th width="20%">Date</th>
+		<th width="20%">Start Time</th>
+		<th width="50%">Description</th>
+		<th></th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Today</td>
+			<td>8:00am</td>
+			<td>Morning Conditioning</td>
+			<td><%= link_to "view", 'viewpracticeplan' %></td>
+		</tr>
+		<tr>
+			<td>Today</td>
+			<td>1:30pm</td>
+			<td>Afternoon Weight Lifting</td>
+			<td><%= link_to "view", 'viewpracticeplan' %></td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Upcoming</h4>
+<table class="table table-striped table-hover">
+	<thead>
+		<th width="20%">Date</th>
+		<th width="20%">Start Time</th>
+		<th width="50%">Description</th>
+		<th></th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Monday, July 13</td>
+			<td>8:00am</td>
+			<td>Morning Conditioning</td>
+			<td><%= link_to "view", 'viewpracticeplan' %></td>
+		</tr>
+		<tr>
+			<td>Tuesday, July 14</td>
+			<td>7:00pm</td>
+			<td>Twilight Practice</td>
+			<td><%= link_to "view", 'viewpracticeplan' %></td>
+		</tr>
+		<tr>
+			<td>Wednesday, July 15</td>
+			<td>7:00pm</td>
+			<td>Twilight Practice</td>
+			<td><%= link_to "view", 'viewpracticeplan' %></td>
+		</tr>
+		<tr>
+			<td>Thursday, July 16</td>
+			<td>7:00pm</td>
+			<td>Thursday Night Lights</td>
+			<td><%= link_to "view", 'viewpracticeplan' %></td>
+		</tr>
+	</tbody>
+</table>
+
+

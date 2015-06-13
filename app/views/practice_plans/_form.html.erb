@@ -1,0 +1,40 @@
+<div class="row">
+<%= form_for(@practice_plan, class:"form-horizontal") do |f| %>
+<div class="col-xs-12">
+	<div class="form-group col-xs-3 col-md-2">
+		<%= f.label :date, "Date" %>
+		<%= f.date_field :date, class:"form-control" %>
+	</div>
+</div>
+
+<div class="col-xs-12">
+	<div class="form-group col-xs-2">
+		<%= f.label :start_time, "Start Time" %>
+		<%= f.time_field :start_time, default: {:hour => '4', :minute => '00'}, class:"form-control", style:"line-height:36px;" %>
+	</div>
+</div>
+
+<div class="col-xs-12">
+	<div class="form-group col-xs-5">
+		<%= f.label :description, "Description" %>
+		<%= f.text_field :description, placeholder: "Tuesday Practice - Rivarly Week", class:"form-control", style:"line-height: 36px;" %>
+	</div>
+</div>
+
+<div class="col-xs-12">
+	<div class="form-group col-xs-2">
+		<%= f.submit "Save", class: "btn btn-success" %>
+	</div>
+	<div class="form-group col-xs-2">
+		<%= link_to "cancel", '/', class:"btn", onClick:'window.history.go(-1)' %>
+	</div>
+	<div class="col-xs-6">
+	</div>
+	<div class="col-xs-2">
+		<% if params[:action] == "edit" %>
+			<%= link_to "Delete Practice Plan", @practice_plan, method: :delete, data: { confirm: "You sure?" } %>
+		<% end %>
+	</div>
+</div>
+<% end %>
+</div>

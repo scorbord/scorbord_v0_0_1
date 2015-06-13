@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213120718) do
+ActiveRecord::Schema.define(version: 20150606011254) do
+
+  create_table "periods", force: :cascade do |t|
+    t.string   "description"
+    t.integer  "duration"
+    t.integer  "row_order"
+    t.integer  "practice_plan_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "periods", ["practice_plan_id", "row_order"], name: "index_periods_on_practice_plan_id_and_row_order"
+  add_index "periods", ["practice_plan_id"], name: "index_periods_on_practice_plan_id"
+
+  create_table "practice_plans", force: :cascade do |t|
+    t.string   "description"
+    t.date     "date"
+    t.time     "start_time"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "practice_plans", ["user_id", "created_at"], name: "index_practice_plans_on_user_id_and_created_at"
+  add_index "practice_plans", ["user_id"], name: "index_practice_plans_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

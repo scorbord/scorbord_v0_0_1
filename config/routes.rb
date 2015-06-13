@@ -16,10 +16,21 @@ Rails.application.routes.draw do
   get     'login'     =>  'sessions#new'
   post    'login'     =>  'sessions#create'
   delete  'logout'    =>  'sessions#destroy'
+  get     'newpracticeplan'   =>  'static_pages#newpracticeplan'
+  get     'viewpracticeplan'   =>  'static_pages#viewpracticeplan'
   
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
+
+  resources :practice_plans do
+    collection do
+      get 'history'
+    end
+  end
+  resources :periods do
+    post :update_row_order, on: :collection
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -12,6 +12,61 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require jquery-ui/datepicker
+//= require jquery-ui/sortable
+//= require jquery-ui/effect-highlight
+//= require jquery.turbolinks
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+$(function(){
+    $('.table tr[data-href]').each(function(){
+        $(this).css('cursor','pointer').hover(
+            function(){ 
+                $(this).addClass('active');
+            },  
+            function(){ 
+                $(this).removeClass('active'); 
+            }).click( function(){ 
+                document.location = $(this).attr('data-href'); 
+            }
+        );
+    });
+    //$("#datepicker").datepicker();
+    //$('#addPeriodSubmit').addClass('disabled', 'disabled');
+});
+
+
+$(document).ready(function() {
+    $('#clear-link').on('click', function (event) {
+        event.preventDefault();
+        $('#periodDesc').val('');
+        $('#periodDur').val('');
+        $('#periodDesc').focus();
+    });
+});
+$(document).ready(function() {
+
+    $('.editPeriodLink').on('click', function (event) {
+        event.preventDefault();
+        var periodId = +$(this).closest('tr').data('item-id');
+        //alert(periodId);
+    });
+    $('#editPeriodModal').on('show.bs.modal', function(event) {
+        var row = $(event.relatedTarget).closest('tr')
+        var periodId = row.data('item-id')
+        var description = row.find('.desc').text()
+        var duration = row.find('.dur').text()
+
+        var modal = $(this)
+        modal.find('#description').val(description)
+        modal.find('#dur').val(duration)
+    });
+
+    setTimeout(function() {
+        $('#flash').remove();
+    }, 5000);
+});
