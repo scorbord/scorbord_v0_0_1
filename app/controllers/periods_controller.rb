@@ -33,16 +33,21 @@ class PeriodsController < ApplicationController
 
 	def create
 		@practice_plan = PracticePlan.find(params[:practice_plan])
-		@period = @practice_plan.periods.build(period_params)
-		if @period.save
-			# do nothing
-			#redirect_to practice_plan_path(@practice_plan)
-			respond_to do |format|
-				format.html { redirect_to @practice_plan }
-				format.js
+		@period = @practice_plan.periods.new(period_params)
+		respond_to do |format|
+			if @period.save
+				# do nothing
+				#redirect_to practice_plan_path(@practice_plan)
+				
+					format.html { redirect_to @practice_plan }
+					format.js 
+				
+			else
+				flash.now[:danger] = "Period not created"
+				# format.html { redirect_to @practice_plan }
+				format.html { redirect_to @practice_plan} 
+				format.json { render json: @period.errors, status: :unprocessable_entity } 
 			end
-		else
-			flash[:danger] = "Period not created"
 		end
 	end
 
