@@ -5,7 +5,9 @@
 
 <div id="periods">
 	
-	<h3>Periods</h3>
+	<h3>Periods<%= link_to '', :onClick=>'window.print();', class:"btn btn-lg pull-right" do %>
+		<span class="glyphicon glyphicon-print"></span> Print
+	<% end %></h3>
 
 	<table class="table table-striped table-hover" id="sortable">
 		<thead>

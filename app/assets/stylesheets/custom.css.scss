@@ -276,3 +276,35 @@ input {
 		}
 	}
 }
+
+@media print{
+	a[href]:after{
+		content: none;
+	}
+	#addPeriod{
+		display: none;
+	}
+	#practicePlanHeader, #periods{
+		a[href]{
+			display: none;
+		}
+		tr{
+			page-break-inside: avoid;
+		}
+	}
+	#practicePlanHeader{
+		margin-top: -50pt;
+	}
+	@page :first {
+		margin-top: 30pt;
+		margin-bottom: 50pt;
+	}
+	@page{
+		margin-top: 50pt;
+		margin-bottom: 50pt;
+	}
+	.mover{
+		font-size: 0pt;
+	}
+}
+
