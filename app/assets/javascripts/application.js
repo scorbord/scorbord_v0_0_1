@@ -69,4 +69,35 @@ $(document).ready(function() {
     setTimeout(function() {
         $('#flash').remove();
     }, 5000);
+
+    $('#addPeriodSubmit').on('click', function(event) {
+        event.preventDefault();
+        event.returnValue = false;
+        //alert('Clicked it!')
+
+        var form = $(this).parent()
+        
+            // if everything checks out
+            // if duration is numerical
+        if ( jQuery.isNumeric( $('#periodDur').val() ) ) {
+            
+            form.submit();
+
+        } else {
+            // set field style to has-error
+            $('#periodDur').parent().addClass('has-error');
+            
+            // show the error message
+            $('#durationAlert').show();
+        }
+    });
 });
+
+
+
+
+
+
+
+
+

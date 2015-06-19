@@ -41,6 +41,9 @@
 				<%= f.text_field :duration, placeholder: '5', class: 'form-control', id:"periodDur" %>
 				<div class="input-group-addon"> minutes</div>
 			</div>
+			<div id="durationAlert" style="display: none;" class="error">
+				<p>Numbers Only</p>
+			</div>
 		</div>
 
 		<%= hidden_field_tag :practice_plan, @practice_plan.id %>
