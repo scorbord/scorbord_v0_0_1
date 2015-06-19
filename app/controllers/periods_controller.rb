@@ -48,7 +48,8 @@ class PeriodsController < ApplicationController
 
 	def destroy
 		@practice_plan = Period.find(params[:id]).practice_plan_id
-		Period.find(params[:id]).destroy
+		@period = Period.find(params[:id])
+		@period.destroy
 		#flash[:success] = "Period Deleted"
 		respond_to do |format|
 			format.html { redirect_to practice_plan_path(@practice_plan) }
