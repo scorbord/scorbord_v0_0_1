@@ -50,6 +50,7 @@ h1 {
 	text-align: center;
 }
 
+/*
 h2 {
 	font-size: 1.2em;
 	letter-spacing: -1px;
@@ -58,6 +59,7 @@ h2 {
 	font-weight: normal;
 	color: $gray-light;
 }
+*/
 
 p {
 	font-size: 1.1em;
@@ -276,6 +278,19 @@ input {
 		}
 	}
 }
+
+/* Home Page Styling */
+
+.feature{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-top: 1px solid #e6e6e6;
+	&.first{
+		border-top: none;
+	}
+}
+
+/* Print Style */
 
 @media print{
 	a[href]:after{
