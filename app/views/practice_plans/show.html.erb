@@ -30,8 +30,9 @@
 </div>
 <div id="addPeriod" style="background-color: #e6e6e6; padding: 25px; margin-top:-20px;">
 
-	<%= form_for(@period, :html => {class: 'form-inline', style: 'padding-left: 7%; height:34px;', id:"addPeriodForm"}, remote: true) do |f| %>
-		
+	<%= form_for(@period, :html => {class: 'form-inline', style: 'width: 100%; margin-left: auto; margin-right: auto; height:34px;', id:"addPeriodForm"}, remote: true) do |f| %>
+		<div class="col-md-1">
+		</div>
 		<div class="form-group col-xs-5">
 			<%= f.text_field :description, placeholder: 'Description', class: 'form-control', id:'periodDesc', style:'width:100%;' %>
 		</div>
@@ -48,7 +49,7 @@
 
 		<%= hidden_field_tag :practice_plan, @practice_plan.id %>
 
-		<div class="form-group col-xs-2">
+		<div class="form-group col-xs-3 col-md-2">
 			<%= f.submit "Add Period", class: "btn btn-success", id:"addPeriodSubmit" %>
 		</div>
 		<div class="form-group col-xs-1">
