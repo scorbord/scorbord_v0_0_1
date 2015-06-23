@@ -17,9 +17,16 @@
 //= require jquery-ui/sortable
 //= require jquery-ui/effect-highlight
 //= require jquery.turbolinks
+//= require touch-punch
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+    $( "#sortable" ).sortable({
+        handle: ".mover"
+    });
+});
 
 
 $(function(){
