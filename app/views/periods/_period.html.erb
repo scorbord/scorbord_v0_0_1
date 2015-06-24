@@ -1,8 +1,8 @@
 <tr data-item-id=<%= period.id %> class="item">
 	<!--<td class="num">#</td>-->
-	<td class="mover"><span class="glyphicon glyphicon-resize-vertical"/></td>
+	<td class="mover"><span class="glyphicon glyphicon-move"/></td>
 	<td class="desc"><%= period.description %></td>
 	<td class="dur"><%= period.duration %></td>
 	<td class="functions">
-		<%= link_to 'edit', edit_period_path(period), remote: true %> <%= link_to 'delete', period, method: :delete, data: { confirm: "You sure?" } %></td>
+		<%= link_to 'edit', edit_period_path(period), remote: true %> <%= link_to 'delete', period, method: :delete, remote: true, data: { confirm: "You sure?", id: period.id } %></td>
 </tr>

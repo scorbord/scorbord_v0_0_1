@@ -1,4 +1,4 @@
-<!--
+<% if !logged_in? %>
 <div class="center jumbotron">
 	<h1>scorbord v0.0.1</h1>
 	<h2>
@@ -7,8 +7,42 @@
 
 	<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
--->
 
+<div class="row">
+	<div class="col-md-6 col-md-offset-1 feature first">
+		<h2><span class="glyphicon glyphicon-flash"></span> Lightning Quick</h2>
+		<p>Create a practice plan, define the periods, and print: out the door in 90 seconds.  We know you don't have hours or even half hours to devote to writing down your practice plans and we don't want to hold you up!</p>
+	</div>
+
+	<div class="col-md-6 col-md-offset-1 feature">
+		<h2><span class="glyphicon glyphicon-thumbs-up"></span> Perfectly Simple</h2>
+		<p>Keep things as simple as you like.  All you need is a description and how long each practice period is going to last.  Then drag and drop to change the order.  Done.</p>
+	</div>
+
+	<div class="col-md-6 col-md-offset-1 feature">
+		<h2><span class="glyphicon glyphicon-lock"></span> Alcatraz Secure</h2>
+		<p>You have complete control over your practice plans and who gets to see them.  We know how protective you are about your strategy for destroying your opponent. (And no, you can't ask us for your rival's practice plans!)</p>
+	</div>
+
+	<div class="col-md-6 col-md-offset-1 feature">
+		<h2><span class="glyphicon glyphicon-ok"></span> By-Law Compliant</h2>
+		<p>As state and national associations crack down on practice planning and limits on "full contact" activities, be prepared.  Don't fall victim to hundreds (or even thousands) of dollars in fines or risk your team's postseason because you didn't log your practice plans.  Be proactive and remember: sometimes the best defense really is a good defense.</p>
+	</div>
+
+</div>
+
+<% else %>
+
+<div class="center jumbotron">
+	<h1>scorbord v0.0.1</h1>
+	<h3>
+		Practice Planning Tool
+	</h3>
+
+	<%= link_to "Go to Practice Plans", practice_plans_path, class: "btn btn-lg btn-success" %>
+</div>
+
+<!--
 <div class="row" style="padding-top: 10px;">
 	<div class="col-xs-10">
 	</div>
@@ -76,5 +110,5 @@
 		</tr>
 	</tbody>
 </table>
-
-
+-->
+<% end %>

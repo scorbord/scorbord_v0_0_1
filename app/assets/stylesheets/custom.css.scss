@@ -19,7 +19,7 @@ html {
 }
 
 body {
-	padding-top: 60px;
+	//padding-top: 60px;
 }
 
 section {
@@ -50,6 +50,7 @@ h1 {
 	text-align: center;
 }
 
+/*
 h2 {
 	font-size: 1.2em;
 	letter-spacing: -1px;
@@ -58,6 +59,7 @@ h2 {
 	font-weight: normal;
 	color: $gray-light;
 }
+*/
 
 p {
 	font-size: 1.1em;
@@ -117,6 +119,11 @@ nav{
 	}
 }
 
+
+.error{
+	font-size: 8pt;
+	color: #de0018;
+}
 
 
 /* footer */
@@ -263,6 +270,8 @@ input {
 	.mover{
 		width: 5% !important;
 		text-align: center;
+		cursor: move;
+		color: #ccc;
 	}
 	.desc{
 		width: 45% !important;
@@ -276,3 +285,48 @@ input {
 		}
 	}
 }
+
+/* Home Page Styling */
+
+.feature{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-top: 1px solid #e6e6e6;
+	&.first{
+		border-top: none;
+	}
+}
+
+/* Print Style */
+
+@media print{
+	a[href]:after{
+		content: none;
+	}
+	#addPeriod{
+		display: none;
+	}
+	#practicePlanHeader, #periods{
+		a[href]{
+			display: none;
+		}
+		tr{
+			page-break-inside: avoid;
+		}
+	}
+	#practicePlanHeader{
+		margin-top: -50pt;
+	}
+	@page :first {
+		margin-top: 30pt;
+		margin-bottom: 50pt;
+	}
+	@page{
+		margin-top: 50pt;
+		margin-bottom: 50pt;
+	}
+	.mover{
+		font-size: 0pt;
+	}
+}
+

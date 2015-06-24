@@ -17,18 +17,25 @@
 //= require jquery-ui/sortable
 //= require jquery-ui/effect-highlight
 //= require jquery.turbolinks
+//= require touch-punch
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+    $( "#sortable" ).sortable({
+        handle: ".mover"
+    });
+});
 
 
 $(function(){
     $('.table tr[data-href]').each(function(){
         $(this).css('cursor','pointer').hover(
-            function(){ 
+            function(){
                 $(this).addClass('active');
             },  
-            function(){ 
+            function(){
                 $(this).removeClass('active'); 
             }).click( function(){ 
                 document.location = $(this).attr('data-href'); 
@@ -69,4 +76,35 @@ $(document).ready(function() {
     setTimeout(function() {
         $('#flash').remove();
     }, 5000);
+
+    $('#addPeriodSubmit').on('click', function(event) {
+        event.preventDefault();
+        event.returnValue = false;
+        //alert('Clicked it!')
+
+        var form = $(this).parent()
+        
+            // if everything checks out
+            // if duration is numerical
+        if ( jQuery.isNumeric( $('#periodDur').val() ) ) {
+            
+            form.submit();
+
+        } else {
+            // set field style to has-error
+            $('#periodDur').parent().addClass('has-error');
+            
+            // show the error message
+            $('#durationAlert').show();
+        }
+    });
 });
+
+
+
+
+
+
+
+
+
