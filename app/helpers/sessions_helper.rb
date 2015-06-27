@@ -35,6 +35,14 @@ module SessionsHelper
 		!current_user.nil?
 	end
 
+	def require_user
+    	if current_user 
+    		true
+    	else
+    		redirect_to login_path, notice: "You must be logged in to access that page." 
+    	end 
+    end 
+
 	# Forgets a persistent session
 	def forget(user)
 		user.forget

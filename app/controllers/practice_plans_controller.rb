@@ -1,5 +1,6 @@
 class PracticePlansController < ApplicationController
-	before_action :current_user, only: [:create, :destroy]
+	before_action :require_user 
+	before_action :current_user
 
 	def index
 		@user = current_user
@@ -26,10 +27,14 @@ class PracticePlansController < ApplicationController
 	end
 
 	def show
-		@practice_plan = PracticePlan.find_by(id: params[:id])
-		@periods = @practice_plan.periods.rank(:row_order).all
+		@practice_plan = current_user.practice_plans.find_by(id: params[:id])
+		#@practice_plan = PracticePlan.find_by(id: params[:id])
+		if @practice_plan
+			@periods = @practice_plan.periods.rank(:row_order).all
+			@period = @practice_plan.periods.new
+		end 
 
-		@period = @practice_plan.periods.new
+		
 	end
 
 	def history
@@ -38,6 +43,7 @@ class PracticePlansController < ApplicationController
 	end
 
 	def edit
+		#@practice_plan = current_user.practice_plan.find(params[:id])
 		@practice_plan = PracticePlan.find(params[:id])
 	end
 

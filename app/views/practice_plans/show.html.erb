@@ -1,3 +1,5 @@
+<% if @practice_plan %> 
+
 <div id="practicePlanHeader">
 	<h1><%= @practice_plan.description %></h1>
 	<h5><%= @practice_plan.date.strftime('%A, %B %d, %Y')%> @ <%= @practice_plan.start_time.strftime('%l:%M %p') %> <%= link_to "edit", edit_practice_plan_path %></h5>
@@ -90,6 +92,14 @@
 	</div>
 -->
 </div>
+
+<% else %> 
+
+<p>Error. Something went wrong. You do not have permission to view this page.</p> 
+
+<% end %> 
+
+
 
 
 
