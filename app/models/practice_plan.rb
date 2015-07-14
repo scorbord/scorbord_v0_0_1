@@ -1,6 +1,6 @@
 class PracticePlan < ActiveRecord::Base
-	belongs_to :user
+	belongs_to :team
 	has_many :periods
 	default_scope -> { order(date: :asc) }
-	validates :user_id, presence: true
+	validates :team_id, presence: true
 end

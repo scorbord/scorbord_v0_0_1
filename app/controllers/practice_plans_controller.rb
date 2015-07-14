@@ -3,17 +3,18 @@ class PracticePlansController < ApplicationController
 	before_action :current_user
 
 	def index
+		#@team = Team.find(params[:team_id])
 		@user = current_user
-		@practice_plans = @user.practice_plans.where('date >= ?', Date.today)
+		@practice_plans = current_team.practice_plans.where('date >= ?', Date.today)
 
-		@past_plans = @user.practice_plans.where('date < ?', Date.today).limit(3).reverse_order
+		@past_plans = current_team.practice_plans.where('date < ?', Date.today).limit(3).reverse_order
 	end
 
 	def create
-		@practice_plan = current_user.practice_plans.build(practice_plan_params)
+		@practice_plan = current_team.practice_plans.build(practice_plan_params)
 		if @practice_plan.save
 			flash[:success] = "Practice Plan Created"
-			redirect_to practice_plan_path(@practice_plan)
+			redirect_to @practice_plan
 		else
 			render 'static_pages/home'
 		end
@@ -23,11 +24,11 @@ class PracticePlansController < ApplicationController
 	end
 
 	def new
-		@practice_plan = current_user.practice_plans.new
+		@practice_plan = PracticePlan.new
 	end
 
 	def show
-		@practice_plan = current_user.practice_plans.find_by(id: params[:id])
+		@practice_plan = current_team.practice_plans.find_by(id: params[:id])
 		#@practice_plan = PracticePlan.find_by(id: params[:id])
 		if @practice_plan
 			@periods = @practice_plan.periods.rank(:row_order).all
@@ -39,7 +40,7 @@ class PracticePlansController < ApplicationController
 
 	def history
 		@user = current_user
-		@practice_plans = @user.practice_plans.where('date < ?', Date.today).reverse_order
+		@practice_plans = current_team.practice_plans.where('date < ?', Date.today).reverse_order
 	end
 
 	def edit
@@ -51,7 +52,7 @@ class PracticePlansController < ApplicationController
 		@practice_plan = PracticePlan.find(params[:id])
 		if @practice_plan.update_attributes(practice_plan_params)
 			respond_to do |format|
-				format.html { redirect_to practice_plan_path }
+				format.html { redirect_to @practice_plan }
 				format.js
 			end
 		end

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606011254) do
+ActiveRecord::Schema.define(version: 20150708111714) do
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "memberships", ["team_id"], name: "index_memberships_on_team_id"
+  add_index "memberships", ["user_id"], name: "index_memberships_on_user_id"
 
   create_table "periods", force: :cascade do |t|
     t.string   "description"
@@ -32,10 +42,36 @@ ActiveRecord::Schema.define(version: 20150606011254) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "team_id"
   end
 
   add_index "practice_plans", ["user_id", "created_at"], name: "index_practice_plans_on_user_id_and_created_at"
   add_index "practice_plans", ["user_id"], name: "index_practice_plans_on_user_id"
+
+  create_table "schools", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "private",     default: false
+    t.string   "level"
+    t.string   "mascot"
+    t.string   "street"
+    t.string   "city"
+    t.string   "province"
+    t.string   "postal_code"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "initials"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "gender"
+    t.string   "sport"
+    t.string   "competition_level"
+    t.integer  "school_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "teams", ["school_id"], name: "index_teams_on_school_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

@@ -39,7 +39,9 @@
 		Practice Planning Tool
 	</h3>
 
-	<%= link_to "Go to Practice Plans", practice_plans_path, class: "btn btn-lg btn-success" %>
+	<%= link_to "Go to Practice Plans", '#', class: "btn btn-lg btn-success" %>
+	<br><br>
+	Memberships: <%= current_user.memberships.count %>
 </div>
 
 <!--

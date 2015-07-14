@@ -1,0 +1,7 @@
+<div class="tmswitch">
+<% if current_user && current_user.teams.count > 1 && current_team != nil %>
+	<% current_user.teams.each do |tm| %>
+		<%= link_to tm.school.initials+' '+tm.competition_level+' '+tm.sport, team_set_path(tm), class: (tm == current_team ? 'active' : '') %>
+	<% end %>
+<% end %>
+</div>

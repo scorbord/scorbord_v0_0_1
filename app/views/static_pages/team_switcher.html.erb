@@ -1,0 +1,5 @@
+<ul>
+<% current_user.memberships.each do |membership| %>
+	<li><%= membership.team.school.name %> <%= membership.team.competition_level %> <%= membership.team.sport %> <%= link_to "SELECT", team_set_path(membership.team) %></li>
+<% end %>
+</ul>

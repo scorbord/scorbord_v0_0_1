@@ -66,6 +66,30 @@ p {
 	line-height:1.7em;
 }
 
+/* team_switcher */
+.tmswitch {
+	background-color: $gray-darker;
+	a {
+		color: $gray;
+		&:hover{
+			text-decoration:none;
+			color: white;
+		}
+	}
+	.active {
+		font-weight: bold;
+		color: $gray-light;
+		&::before{
+			content: "[ ";
+		}
+		&::after{
+			content: " ]";
+		}
+	}
+	
+
+}
+
 /* header */
 
 #logo {

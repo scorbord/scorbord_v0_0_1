@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :practice_plans, dependent: :destroy
+	has_many :memberships, dependent: :destroy
+	has_many :teams, through: :memberships
 
 	attr_accessor :remember_token, :activation_token, :reset_token
 	before_save 	:downcase_email

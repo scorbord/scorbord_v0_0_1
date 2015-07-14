@@ -30,6 +30,33 @@ module SessionsHelper
 		end
 	end
 
+	# Sets the current scoped team
+	def set_team(team)
+		session[:team_id] = team.id
+	end
+
+	# Returns the current scoped team
+	def current_team
+		if (session[:team_id])
+			@current_team = Team.find_by(id: session[:team_id])
+		else
+			@current_team = nil
+		end
+
+		#@current_team = Team.find(1)
+		
+		#if (team_id = session[:team_id])
+		#	@current_team ||= Team.find_by(id: team_id)
+		#elsif (team_id = cookies.signed[:team_id])
+		#	team = Team.find_by(id: team_id)
+		#end
+	end
+
+	def forget_team
+		@current_team = nil
+		session[:team_id] = nil
+	end
+
 	# Returns true if the user is logged in, false otherwise
 	def logged_in?
 		!current_user.nil?
@@ -55,6 +82,7 @@ module SessionsHelper
 		forget(current_user)
 		session.delete(:user_id)
 		@current_user = nil
+		session.delete(:team_id)
 	end
 
 	# Redirects to stored location (or to the default)

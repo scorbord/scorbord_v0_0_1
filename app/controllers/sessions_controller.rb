@@ -11,7 +11,15 @@ class SessionsController < ApplicationController
     		log_in user
     		params[:session][:remember_me] == '1' ? remember(user) : forget(user)
     		# redirect_back_or user
-        redirect_to root_url
+        if user.memberships.count > 1
+          
+          redirect_to team_switcher_path
+        elsif user.memberships.count == 1
+          set_team(Team.find(user.memberships.first.team_id))
+          redirect_to root_url
+        else #user has no memberships
+          redirect_to "http://www.google.com"
+        end
       else
         message = "Account not activated. "
         message += "Check your email for the activation link."
@@ -26,6 +34,7 @@ class SessionsController < ApplicationController
 
   def destroy
   	log_out if logged_in?
+    forget_team
   	redirect_to root_url
   end
 end
